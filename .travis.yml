@@ -1,0 +1,19 @@
+language: java
+
+env:
+  global:
+    - secure: seqykSpkrD3DP5G/qGnhKbFDr1nWCqhcGp+0ihtYweeTcVNVuOR+ZZo25QY7Sc8jLfI52OGZQnuBm3AxHnpB+hwzd6zfPNE7GrqYz11e/yYpwaQXuxjzIRi8obACBxpCE5kKd2TjDRbwUDlTlpuFV7mT+rTKhCh+uQucypaYhqSsIUN7ZVci23U68zsZlEHH3WHViP+4WFacm7sd9CaTBpgX/QLvNJExdpXort5EucKw948kMI3ZXA3f8TYlw/2AckBgA7UTUoF50jwrXcQaH5c+fgB0dQiM53RoTR5lcBJYEhNtBaO1pe5ACMAfnu+zAKPxRgdbwLvNwjswxs9WmliB5yak5AyWgymQ4vjjoKXADQOuYmK6HT230dH57Y+a1dlK7GlRGarp2pd8hdwbnMbtSZd0kIJTLA72TdnNwdm301FRzBwBDH7E28WfvCZ+w5AUSGGVxb15s7BXGjrv5BMWUEH3K70czWN2EWJMy5mvdV6TOE24bg/Oc/7+fwMiJtV6rIggOV/rtkY+rS7XpX7DMCLctzOh46JBg6rv7t5ca2/2cnume+hS0AXvedbAyr5lMzb6QUwjRzFfKjSTjKYq7L/lTKhW0HOSDQS0XS7jp/hUp2mjzReZtjvJdmIUyZwQbWS2W+A9iL7kKKhdncEFZhhh3VqSadpN/bseAc4=
+    - secure: u+HxHua5chDgWo1fK2G8jM0fzEvlzgNYyiHoVSCJ3oqVmzC95JYOIT7Sb0HTfn4x4JbhlfWiSBc4vv8mZNvKhgzIL0rB2zc8x5orQeKKmV3J2mpBwsBFPUTV7A/vaTYYqYZBg/KH+w6/bAgliMb3JamxFirJ9CbhXLaZ64rr+26Kde/rYEkaDK/u3NF+vxycnlXPIXhoCw0PfBcyhMQ4bz5XDvUxs6oKbCSXIB7vjc3jt6Oqz8udpUNvS5LygwvgLJ8wv0xHd3LackOc8O7l4xDDTmkzW54QXxLMhRSAxqHLpuyEafJzqjF/Z6/ZhctuZv0DMDfh1dnU4R7X/7G9PLheT1Y5JEPgJDWghS15/e73YfZrqNcS+bbQgmnfS9o8XrVqD4CtdP3CvZgyxjtro/I+iPNdCsauaSoKH0ApDVOtEMIaqv+1GwzcKzq8lU1x1Y+WHxnQVJ6Sfo+QqAY4M/d1hXNJcqC7k/l7e7R5k382Rz/baLxjBegDmA4qIWykjwsamXTY6MAlcieDgcSFm0pxL9Ahwt0C2HhqD3LtBkplU2hR8h4aszVu4SIhvkE6hBMPHR3ti0Y7Wx+RMPyFL/3lSxBhlXo23Z86miN8XIRXapNnS3v3xb8+3RJvMiKPOb2PapWiMtjyAXoF0Q0ifcxGSmS+qwcDq5VoD3woXL4=
+
+
+jdk:
+  - openjdk8
+  - oraclejdk8
+  - oraclejdk9
+
+script:
+  - "./gradlew --info build"
+
+deploy:
+  provider: script
+  script: "./gradlew --info release -Pbintray.user='$DEPLOYER_CREDENTIALS_USER' -Pbintray.key='$DEPLOYER_CREDENTIALS_KEY'"
