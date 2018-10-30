@@ -1,7 +1,7 @@
 plugins {
   id 'com.jfrog.bintray' version '1.8.4'
   id 'java-gradle-plugin'
-  id 'net.researchgate.release' version '2.5.0'
+  id 'net.researchgate.release' version '2.7.0'
 }
 
 apply plugin: 'com.jfrog.bintray'
@@ -98,5 +98,4 @@ wrapper {
   gradleVersion = '4.10.2'
 }
 
-ext.'gradle.release.useAutomaticVersion' = "true"
 afterReleaseBuild.dependsOn bintrayUpload

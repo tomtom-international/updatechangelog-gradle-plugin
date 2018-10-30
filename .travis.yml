@@ -1,19 +1,34 @@
-language: java
+language: groovy
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
 
 env:
   global:
-    - secure: seqykSpkrD3DP5G/qGnhKbFDr1nWCqhcGp+0ihtYweeTcVNVuOR+ZZo25QY7Sc8jLfI52OGZQnuBm3AxHnpB+hwzd6zfPNE7GrqYz11e/yYpwaQXuxjzIRi8obACBxpCE5kKd2TjDRbwUDlTlpuFV7mT+rTKhCh+uQucypaYhqSsIUN7ZVci23U68zsZlEHH3WHViP+4WFacm7sd9CaTBpgX/QLvNJExdpXort5EucKw948kMI3ZXA3f8TYlw/2AckBgA7UTUoF50jwrXcQaH5c+fgB0dQiM53RoTR5lcBJYEhNtBaO1pe5ACMAfnu+zAKPxRgdbwLvNwjswxs9WmliB5yak5AyWgymQ4vjjoKXADQOuYmK6HT230dH57Y+a1dlK7GlRGarp2pd8hdwbnMbtSZd0kIJTLA72TdnNwdm301FRzBwBDH7E28WfvCZ+w5AUSGGVxb15s7BXGjrv5BMWUEH3K70czWN2EWJMy5mvdV6TOE24bg/Oc/7+fwMiJtV6rIggOV/rtkY+rS7XpX7DMCLctzOh46JBg6rv7t5ca2/2cnume+hS0AXvedbAyr5lMzb6QUwjRzFfKjSTjKYq7L/lTKhW0HOSDQS0XS7jp/hUp2mjzReZtjvJdmIUyZwQbWS2W+A9iL7kKKhdncEFZhhh3VqSadpN/bseAc4=
-    - secure: u+HxHua5chDgWo1fK2G8jM0fzEvlzgNYyiHoVSCJ3oqVmzC95JYOIT7Sb0HTfn4x4JbhlfWiSBc4vv8mZNvKhgzIL0rB2zc8x5orQeKKmV3J2mpBwsBFPUTV7A/vaTYYqYZBg/KH+w6/bAgliMb3JamxFirJ9CbhXLaZ64rr+26Kde/rYEkaDK/u3NF+vxycnlXPIXhoCw0PfBcyhMQ4bz5XDvUxs6oKbCSXIB7vjc3jt6Oqz8udpUNvS5LygwvgLJ8wv0xHd3LackOc8O7l4xDDTmkzW54QXxLMhRSAxqHLpuyEafJzqjF/Z6/ZhctuZv0DMDfh1dnU4R7X/7G9PLheT1Y5JEPgJDWghS15/e73YfZrqNcS+bbQgmnfS9o8XrVqD4CtdP3CvZgyxjtro/I+iPNdCsauaSoKH0ApDVOtEMIaqv+1GwzcKzq8lU1x1Y+WHxnQVJ6Sfo+QqAY4M/d1hXNJcqC7k/l7e7R5k382Rz/baLxjBegDmA4qIWykjwsamXTY6MAlcieDgcSFm0pxL9Ahwt0C2HhqD3LtBkplU2hR8h4aszVu4SIhvkE6hBMPHR3ti0Y7Wx+RMPyFL/3lSxBhlXo23Z86miN8XIRXapNnS3v3xb8+3RJvMiKPOb2PapWiMtjyAXoF0Q0ifcxGSmS+qwcDq5VoD3woXL4=
-
+    - secure: "seqykSpkrD3DP5G/qGnhKbFDr1nWCqhcGp+0ihtYweeTcVNVuOR+ZZo25QY7Sc8jLfI52OGZQnuBm3AxHnpB+hwzd6zfPNE7GrqYz11e/yYpwaQXuxjzIRi8obACBxpCE5kKd2TjDRbwUDlTlpuFV7mT+rTKhCh+uQucypaYhqSsIUN7ZVci23U68zsZlEHH3WHViP+4WFacm7sd9CaTBpgX/QLvNJExdpXort5EucKw948kMI3ZXA3f8TYlw/2AckBgA7UTUoF50jwrXcQaH5c+fgB0dQiM53RoTR5lcBJYEhNtBaO1pe5ACMAfnu+zAKPxRgdbwLvNwjswxs9WmliB5yak5AyWgymQ4vjjoKXADQOuYmK6HT230dH57Y+a1dlK7GlRGarp2pd8hdwbnMbtSZd0kIJTLA72TdnNwdm301FRzBwBDH7E28WfvCZ+w5AUSGGVxb15s7BXGjrv5BMWUEH3K70czWN2EWJMy5mvdV6TOE24bg/Oc/7+fwMiJtV6rIggOV/rtkY+rS7XpX7DMCLctzOh46JBg6rv7t5ca2/2cnume+hS0AXvedbAyr5lMzb6QUwjRzFfKjSTjKYq7L/lTKhW0HOSDQS0XS7jp/hUp2mjzReZtjvJdmIUyZwQbWS2W+A9iL7kKKhdncEFZhhh3VqSadpN/bseAc4="
+    - secure: "u+HxHua5chDgWo1fK2G8jM0fzEvlzgNYyiHoVSCJ3oqVmzC95JYOIT7Sb0HTfn4x4JbhlfWiSBc4vv8mZNvKhgzIL0rB2zc8x5orQeKKmV3J2mpBwsBFPUTV7A/vaTYYqYZBg/KH+w6/bAgliMb3JamxFirJ9CbhXLaZ64rr+26Kde/rYEkaDK/u3NF+vxycnlXPIXhoCw0PfBcyhMQ4bz5XDvUxs6oKbCSXIB7vjc3jt6Oqz8udpUNvS5LygwvgLJ8wv0xHd3LackOc8O7l4xDDTmkzW54QXxLMhRSAxqHLpuyEafJzqjF/Z6/ZhctuZv0DMDfh1dnU4R7X/7G9PLheT1Y5JEPgJDWghS15/e73YfZrqNcS+bbQgmnfS9o8XrVqD4CtdP3CvZgyxjtro/I+iPNdCsauaSoKH0ApDVOtEMIaqv+1GwzcKzq8lU1x1Y+WHxnQVJ6Sfo+QqAY4M/d1hXNJcqC7k/l7e7R5k382Rz/baLxjBegDmA4qIWykjwsamXTY6MAlcieDgcSFm0pxL9Ahwt0C2HhqD3LtBkplU2hR8h4aszVu4SIhvkE6hBMPHR3ti0Y7Wx+RMPyFL/3lSxBhlXo23Z86miN8XIRXapNnS3v3xb8+3RJvMiKPOb2PapWiMtjyAXoF0Q0ifcxGSmS+qwcDq5VoD3woXL4="
+    - secure: "u2fUNhYP22fX4GGOiipfDBzbMl/gP/16Vo9wOo67guryp/8IU2eGqE8oeot2B2kGj9Be/5S/MHftDCooE2GLJrtECbDfk1JolZLaBeq9sMIb8/vkkrIYYA881iryZbYvuWXHwoIxNe40bnzp2i0GMD3QrSWcGr9SM3nlprOET0Q/U6dIa1BQMdfU5iGT5x/9oBkkCwnU1Ro0KHIA/ZxiSDpBoGFXZ7HCJDk17UZWmAS0o7Fm8sJsmkqPIVSJ8cCParGvLOHRL5yRx6G24Z21UuzA3imrKtfrrCU3/DbynQlb2UFi1Dp4AX7xQFfsJlvEiyTH8f5xveXhY+gKqwutwzMfD4HvGJGpaBM5JjsCnakoL7FhWOYTyiKyPCPdxhkl54pwQqlC1h3yPFw2hZRyzjPxz551SmEhNi9WN2m0sbWzIwGniQsI7nTP8zqHz0+bYT2l4J2gvJdPXhdsIn1q3Nu+yX5eLK0gu40VVmVN4f+1Mc7i5jq+ZqaTD9ewxmt9hBa7OAo3uuYdS6u6DsG6uzxI4u39WjW7tbHJ8wxxAHMS94WreS5KYUJdnd0R9nok+qxAaQtyy2XU8MXaOkGD14N5e0IvO36uJj2aYyY6If/ESrGIQuD66jLYcPj131YTPMrz/oOFFAE0PGAQbttg5624Mlo+sbYZTQj9lCrx3KA="
 
 jdk:
-  - openjdk8
   - oraclejdk8
-  - oraclejdk9
 
+# The Github user *tt-ci* is the user who will do the git commits initiated by the Gradle Release Plugin.
+before_install:
+  - echo -e "machine github.com\n  login $TT_CI_TOKEN" > ~/.netrc
+
+# Travis works on detached head. In order to push commits and tags the Gradle Release Plugin needs to
+# know the current branch as otherwise it will fail.
 script:
-  - "./gradlew --info build"
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
+  - git checkout $TRAVIS_BRANCH
+  - ./gradlew build
 
 deploy:
   provider: script
-  script: "./gradlew --info release -Pbintray.user='$DEPLOYER_CREDENTIALS_USER' -Pbintray.key='$DEPLOYER_CREDENTIALS_KEY'"
+  script: ./gradlew release -Prelease.preCommitText='[skip travis]' -Prelease.useAutomaticVersion=true -Pbintray.user='$DEPLOYER_CREDENTIALS_USER' -Pbintray.key='$DEPLOYER_CREDENTIALS_KEY'
+
+# This service will post failing tests directly in PRs.
+notifications:
+    webhooks: https://www.travisbuddy.com/
