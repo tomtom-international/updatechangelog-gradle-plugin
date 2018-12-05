@@ -1,4 +1,5 @@
 # Changelog
+  * Correcting license.
 
 **1.0.0** (2018-10-30):
   * Initial commit
