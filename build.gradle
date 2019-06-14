@@ -13,7 +13,7 @@ apply from: "$rootDir/gradle/functional-test.gradle"
 
 gradlePlugin {
   plugins {
-    updateChangelogPlugin {
+    updateChangelog {
       id = 'com.tomtom.gradle.updatechangelog'
       description = 'A plugin that automatically updates the version in your changelog file.'
       implementationClass = 'com.tomtom.gradle.updatechangelog.UpdateChangelogPlugin'
@@ -70,7 +70,7 @@ publishing {
 bintray {
   user = project.findProperty('bintray.user') ?: System.getProperty('bintray.user')
   key = project.findProperty('bintray.key') ?: System.getProperty('bintray.key')
-  publications = ['mavenJava']
+  publications = ['mavenJava', 'updateChangelogPluginMarkerMaven']
   publish = true //[Default: false] Whether version should be auto published after an upload
 
   pkg {
