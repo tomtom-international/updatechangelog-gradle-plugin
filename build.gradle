@@ -10,6 +10,7 @@ apply plugin: 'java-gradle-plugin'
 apply plugin: 'maven-publish'
 apply from: "$rootDir/gradle/functional-test.gradle"
 
+group = 'com.tomtom.gradle'
 
 gradlePlugin {
   plugins {
@@ -58,19 +59,10 @@ compileGroovy {
   options.warnings = true
 }
 
-publishing {
-  publications {
-    mavenJava(MavenPublication) {
-      from components.java
-      groupId = 'com.tomtom.gradle'
-    }
-  }
-}
-
 bintray {
   user = project.findProperty('bintray.user') ?: System.getProperty('bintray.user')
   key = project.findProperty('bintray.key') ?: System.getProperty('bintray.key')
-  publications = ['mavenJava', 'updateChangelogPluginMarkerMaven']
+  publications = ['pluginMaven', 'updateChangelogPluginMarkerMaven']
   publish = true //[Default: false] Whether version should be auto published after an upload
 
   pkg {
