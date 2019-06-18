@@ -15,9 +15,9 @@ group = 'com.tomtom.gradle'
 gradlePlugin {
   plugins {
     updateChangelog {
-      id = 'com.tomtom.gradle.updatechangelog'
+      id = "${project.group}.updatechangelog"
       description = 'A plugin that automatically updates the version in your changelog file.'
-      implementationClass = 'com.tomtom.gradle.updatechangelog.UpdateChangelogPlugin'
+      implementationClass = "${project.group}.updatechangelog.UpdateChangelogPlugin"
     }
   }
 }
