@@ -11,7 +11,7 @@ env:
     - secure: "u2fUNhYP22fX4GGOiipfDBzbMl/gP/16Vo9wOo67guryp/8IU2eGqE8oeot2B2kGj9Be/5S/MHftDCooE2GLJrtECbDfk1JolZLaBeq9sMIb8/vkkrIYYA881iryZbYvuWXHwoIxNe40bnzp2i0GMD3QrSWcGr9SM3nlprOET0Q/U6dIa1BQMdfU5iGT5x/9oBkkCwnU1Ro0KHIA/ZxiSDpBoGFXZ7HCJDk17UZWmAS0o7Fm8sJsmkqPIVSJ8cCParGvLOHRL5yRx6G24Z21UuzA3imrKtfrrCU3/DbynQlb2UFi1Dp4AX7xQFfsJlvEiyTH8f5xveXhY+gKqwutwzMfD4HvGJGpaBM5JjsCnakoL7FhWOYTyiKyPCPdxhkl54pwQqlC1h3yPFw2hZRyzjPxz551SmEhNi9WN2m0sbWzIwGniQsI7nTP8zqHz0+bYT2l4J2gvJdPXhdsIn1q3Nu+yX5eLK0gu40VVmVN4f+1Mc7i5jq+ZqaTD9ewxmt9hBa7OAo3uuYdS6u6DsG6uzxI4u39WjW7tbHJ8wxxAHMS94WreS5KYUJdnd0R9nok+qxAaQtyy2XU8MXaOkGD14N5e0IvO36uJj2aYyY6If/ESrGIQuD66jLYcPj131YTPMrz/oOFFAE0PGAQbttg5624Mlo+sbYZTQj9lCrx3KA="
 
 jdk:
-  - oraclejdk8
+  - openjdk8
 
 # The Github user *tt-ci* is the user who will do the git commits initiated by the Gradle Release Plugin.
 before_install:
