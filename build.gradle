@@ -59,10 +59,15 @@ compileGroovy {
   options.warnings = true
 }
 
+afterEvaluate {
+  def publicationNames = publishing.publications.findAll { it instanceof MavenPublication }.collect { it.name }
+  project.logger.info("Bintray publications: ${publicationNames}")
+  bintray.publications = publicationNames
+}
+
 bintray {
   user = project.findProperty('bintray.user') ?: System.getProperty('bintray.user')
   key = project.findProperty('bintray.key') ?: System.getProperty('bintray.key')
-  publications = ['pluginMaven', 'updateChangelogPluginMarkerMaven']
   publish = true //[Default: false] Whether version should be auto published after an upload
 
   pkg {
