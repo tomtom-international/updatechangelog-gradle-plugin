@@ -21,25 +21,47 @@ changelog file based on the released version and the release date.
       * Initial commit
     ```
 
-1. Add the Gradle plugin and configure it in *build.gradle*
-
+1. Add the Gradle plugin
+    
+    1. Using the [plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
+    
+    In your *setting.gradle.kts*    
+    ```kotlin
+    pluginManagement {
+        repositories {
+            maven {
+                url = "https://dl.bintray.com/tomtom-nav-pipeline/gradle-plugins"
+            }
+        }
+    }
+    ```    
+    In *build.gradle.kts*
+    ```kotlin
+    plugins {
+        id("com.tomtom.gradle.updatechangelog") version "<version>"
+    }
+    ```
+    
+    1. Using [legacy plugin application](https://docs.gradle.org/current/userguide/plugins.html#sec:old_plugin_application):
     ```gradle
     buildscript {
         repositories {
             maven {
-              url  "https://dl.bintray.com/tomtom-nav-pipeline/gradle-plugins"
+              url "https://dl.bintray.com/tomtom-nav-pipeline/gradle-plugins"
             }
         }
 
         dependencies {
-            classpath group: 'com.tomtom.gradle', name: 'updatechangelog-plugin', version: '1.0.0'
+            classpath 'com.tomtom.gradle:updatechangelog-plugin:<version>'
         }
     }
 
     apply: com.tomtom.gradle.updatechangelog
+    ```
 
-    [...]
+1. Configure it in *build.gradle*
 
+    ```groovy
     changelog {
       versionPlaceholder = '# Changelog'
       changelogFilename = 'CHANGELOG.md'
