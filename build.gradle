@@ -2,6 +2,7 @@ plugins {
   id 'com.jfrog.bintray' version '1.8.4'
   id 'java-gradle-plugin'
   id 'net.researchgate.release' version '2.7.0'
+  id 'com.tomtom.gradle.updatechangelog' version '1.0.4'
 }
 
 apply plugin: 'com.jfrog.bintray'
@@ -89,6 +90,11 @@ bintray {
       released = new Date()
     }
   }
+}
+
+changelog {
+  versionPlaceholder = '# Changelog'
+  changelogFilename = 'CHANGELOG.md'
 }
 
 wrapper {
