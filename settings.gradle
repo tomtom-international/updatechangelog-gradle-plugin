@@ -1,2 +1,11 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url "https://dl.bintray.com/tomtom-international/gradle-plugins"
+        }
+    }
+}
+
 rootProject.name = 'updatechangelog-plugin'
 enableFeaturePreview('STABLE_PUBLISHING')
