@@ -102,3 +102,4 @@ wrapper {
 }
 
 afterReleaseBuild.dependsOn bintrayUpload
+preTagCommit.dependsOn updateChangelog
