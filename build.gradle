@@ -2,12 +2,10 @@ plugins {
   id 'com.jfrog.bintray' version '1.8.4'
   id 'java-gradle-plugin'
   id 'net.researchgate.release' version '2.7.0'
+  id 'com.tomtom.gradle.updatechangelog' version '1.0.6'
+  id 'groovy'
+  id 'maven-publish'
 }
-
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'groovy'
-apply plugin: 'java-gradle-plugin'
-apply plugin: 'maven-publish'
 apply from: "$rootDir/gradle/functional-test.gradle"
 
 group = 'com.tomtom.gradle'
@@ -91,6 +89,11 @@ bintray {
   }
 }
 
+changelog {
+  versionPlaceholder = '# Changelog'
+  changelogFilename = 'CHANGELOG.md'
+}
+
 wrapper {
   gradleVersion = '5.4.1'
   distributionType = Wrapper.DistributionType.ALL
@@ -98,3 +101,4 @@ wrapper {
 }
 
 afterReleaseBuild.dependsOn bintrayUpload
+preTagCommit.dependsOn updateChangelog
