@@ -1,4 +1,6 @@
 # Changelog
+
+**1.0.7** (2019-07-11):
   * Update license.
   * Allow clients to apply plugin with [plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
   * Use Gradle 5.4.1 to build the plugin.
