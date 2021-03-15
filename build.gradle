@@ -22,21 +22,19 @@ gradlePlugin {
 
 repositories {
   mavenCentral()
-  gradlePluginPortal()
 }
 
 dependencies {
-  compile gradleApi()
-  compile localGroovy()
-  testCompile('org.junit.jupiter:junit-jupiter-api:5.3.1')
-  testRuntime('org.junit.jupiter:junit-jupiter-engine:5.3.1')
+  implementation gradleApi()
+  implementation localGroovy()
 
+  testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
   testCompile('org.spockframework:spock-core:1.2-groovy-2.4') {
     exclude group: 'org.codehaus.groovy'
   }
   // This dependency is required by the spockframework since
   // it is still based on JUnit4.
-  testRuntimeOnly "org.junit.vintage:junit-vintage-engine:5.3.1"
+  testRuntimeOnly('org.junit.vintage:junit-vintage-engine:5.3.1')
 }
 
 test {
