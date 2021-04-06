@@ -25,7 +25,6 @@ repositories {
 }
 
 dependencies {
-  implementation gradleApi()
   implementation localGroovy()
 
   testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
