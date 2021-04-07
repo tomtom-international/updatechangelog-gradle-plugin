@@ -1,11 +1,12 @@
 plugins {
-  id 'com.jfrog.bintray' version '1.8.4'
+  id 'com.gradle.plugin-publish' version '0.13.0'
   id 'java-gradle-plugin'
   id 'net.researchgate.release' version '2.7.0'
   id 'com.tomtom.gradle.updatechangelog' version '1.0.6'
   id 'groovy'
   id 'maven-publish'
 }
+
 apply from: "$rootDir/gradle/functional-test.gradle"
 
 group = 'com.tomtom.gradle'
@@ -14,28 +15,25 @@ gradlePlugin {
   plugins {
     updateChangelog {
       id = "${project.group}.updatechangelog"
-      description = 'A plugin that automatically updates the version in your changelog file.'
       implementationClass = "${project.group}.updatechangelog.UpdateChangelogPlugin"
     }
   }
 }
 
 repositories {
-  jcenter()
+  mavenCentral()
 }
 
 dependencies {
-  compile gradleApi()
-  compile localGroovy()
-  testCompile('org.junit.jupiter:junit-jupiter-api:5.3.1')
-  testRuntime('org.junit.jupiter:junit-jupiter-engine:5.3.1')
+  implementation localGroovy()
 
+  testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
   testCompile('org.spockframework:spock-core:1.2-groovy-2.4') {
     exclude group: 'org.codehaus.groovy'
   }
   // This dependency is required by the spockframework since
   // it is still based on JUnit4.
-  testRuntimeOnly "org.junit.vintage:junit-vintage-engine:5.3.1"
+  testRuntimeOnly('org.junit.vintage:junit-vintage-engine:5.3.1')
 }
 
 test {
@@ -57,34 +55,16 @@ compileGroovy {
   options.warnings = true
 }
 
-afterEvaluate {
-  def publicationNames = publishing.publications.findAll { it instanceof MavenPublication }.collect { it.name }
-  project.logger.info("Bintray publications: ${publicationNames}")
-  bintray.publications = publicationNames
-}
+pluginBundle {
+  website = 'https://github.com/tomtom-international/updatechangelog-gradle-plugin'
+  vcsUrl = 'https://github.com/tomtom-international/updatechangelog-gradle-plugin'
+  description = 'A plugin that automatically updates the version in your changelog file.'
 
-bintray {
-  user = project.findProperty('bintray.user') ?: System.getProperty('bintray.user')
-  key = project.findProperty('bintray.key') ?: System.getProperty('bintray.key')
-  publish = true //[Default: false] Whether version should be auto published after an upload
-
-  pkg {
-    repo = 'gradle-plugins'
-    name = 'updatechangelog-gradle-plugin'
-    userOrg = 'tomtom-international'
-    desc = 'A plugin that automatically updates the version in your changelog file.'
-    websiteUrl = 'https://github.com/tomtom-international/updatechangelog-gradle-plugin'
-    issueTrackerUrl = 'https://github.com/tomtom-international/updatechangelog-gradle-plugin/issues'
-    vcsUrl = 'https://github.com/tomtom-international/updatechangelog-gradle-plugin'
-    publicDownloadNumbers = true
-    licenses = ['Apache-2.0']
-    labels = ['changelog', 'release']
-
-    version {
-      name = "${project.version}"
-      desc = "Gradle Update Changelog Plugin ${project.version}"
-      vcsTag = "${project.version}"
-      released = new Date()
+  plugins {
+    updateChangelog {
+      displayName = 'Gradle changelog update plugin'
+      tags = ['changelog', 'release']
+      version = "${project.version}"
     }
   }
 }
@@ -94,11 +74,5 @@ changelog {
   changelogFilename = 'CHANGELOG.md'
 }
 
-wrapper {
-  gradleVersion = '5.4.1'
-  distributionType = Wrapper.DistributionType.ALL
-  distributionSha256Sum = "14cd15fc8cc8705bd69dcfa3c8fefb27eb7027f5de4b47a8b279218f76895a91"
-}
-
-afterReleaseBuild.dependsOn bintrayUpload
+afterReleaseBuild.dependsOn publishPlugins
 preTagCommit.dependsOn updateChangelog
