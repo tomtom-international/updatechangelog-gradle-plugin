@@ -1,5 +1,8 @@
 # Changelog
 
+  * Publish plugin to official Gradle Plugin Portal instead Bintray which is shutdown by JFrog.
+  * Update *tt-ci* GitHub API token for committing (gradle release plugin).
+
 **1.0.7** (2019-07-11):
   * Update license.
   * Allow clients to apply plugin with [plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
