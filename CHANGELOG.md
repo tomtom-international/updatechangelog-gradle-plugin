@@ -1,5 +1,7 @@
 # Changelog
 
+**1.0.9** (2021-04-08):
+
 * Use *updatechangelog* plugin from Gradle Plugin Portal instead Bintray.
 * Revert changes in build.gradle introduced in 1.0.8 release which was done manually and not via CI.
 * Reformat CHANGELOG.md
