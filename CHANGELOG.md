@@ -1,5 +1,7 @@
 # Changelog
 
+**1.0.8** (2021-04-08):
+
   * Publish plugin to official Gradle Plugin Portal instead Bintray which is shutdown by JFrog.
   * Update *tt-ci* GitHub API token for committing (gradle release plugin).
 

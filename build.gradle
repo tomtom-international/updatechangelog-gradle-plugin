@@ -74,5 +74,9 @@ changelog {
   changelogFilename = 'CHANGELOG.md'
 }
 
-afterReleaseBuild.dependsOn publishPlugins
+release {
+  failOnCommitNeeded = false
+}
+
+//afterReleaseBuild.dependsOn publishPlugins
 preTagCommit.dependsOn updateChangelog
