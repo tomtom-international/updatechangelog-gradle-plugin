@@ -2,7 +2,7 @@ plugins {
   id 'com.gradle.plugin-publish' version '0.13.0'
   id 'java-gradle-plugin'
   id 'net.researchgate.release' version '2.7.0'
-  id 'com.tomtom.gradle.updatechangelog' version '1.0.6'
+  id 'com.tomtom.gradle.updatechangelog' version '1.0.8'
   id 'groovy'
   id 'maven-publish'
 }
@@ -74,9 +74,5 @@ changelog {
   changelogFilename = 'CHANGELOG.md'
 }
 
-release {
-  failOnCommitNeeded = false
-}
-
-//afterReleaseBuild.dependsOn publishPlugins
+afterReleaseBuild.dependsOn publishPlugins
 preTagCommit.dependsOn updateChangelog
